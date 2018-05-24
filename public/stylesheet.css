@@ -1,0 +1,245 @@
+* {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+header {
+    padding-left: 3vh;
+    padding-top: 3vh
+}
+
+header label {
+    font-size: 47px;
+    position: relative;
+    left: 38vw;
+    opacity: 0.9;
+    color: #4C3025;
+}
+
+header h1 {
+    font-size: 43px;
+}
+
+header a {
+    text-decoration: none;
+}
+
+#tooLarge {
+    position: relative;
+    top: -15vh;
+    right: -72vw;
+}
+
+#logo {
+    left: 39vw;
+    width: 10vh;
+    position: relative;
+}
+
+#logo:hover {
+    opacity: 0.8
+}
+
+#delButton {
+    opacity: 100;
+    width: 20px;
+}
+
+#delButton:hover {
+    opacity: 100
+}
+
+#main a {
+    text-decoration: none;
+    color: green
+}
+
+#upload {
+    display: flex;
+    padding-bottom: 3vh;
+    padding-top: 3vh;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-bottom: 2px solid gainsboro;
+    border-top: 2px solid gainsboro;
+}
+
+#upload input {
+    width: 20vh;
+    margin-right: 3vh;
+}
+
+#upload label {
+    margin-right: 1vh;
+}
+
+#upload button {
+    font-size: 17px;
+    width: 13vw;
+    height: 3vh;
+    position: relative;
+    border-radius: 15px;
+}
+
+#upload button:hover {
+    background-color: gainsboro;
+    color: white;
+}
+
+.newStuff {
+    position: relative;
+    top: 13vh;
+}
+
+.uploadHappened {
+    position: relative;
+    left: 35vh;
+    top: -12vh;
+}
+
+#uploadHappened {
+    position: relative;
+    left: -25vh;
+    top: -7vh;
+}
+
+#main {
+    justify-content: center;
+    grid-gap: 3%;
+    overflow: hidden;
+    padding-top: 5vh;
+}
+
+#main h2 {
+    display: flex;
+    justify-content: center;
+    color: #4C3025
+}
+
+.picContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pictures {
+    margin: 2vh;
+    border-radius: 5px;
+    height: 38vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pictures img {
+    max-height: 30vh;
+    border-radius: 31px;
+    justify-self: center;
+    padding: 1vh;
+    opacity: 0.85;
+}
+
+.pictures img:hover {
+    opacity: 1
+}
+
+.pictures a {
+    color: grey;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/*  MODAL  */
+
+.backgroundModal {
+    top: 0;
+    z-index: 50;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.modal {
+    top: 5%;
+    left: 27vw;
+    z-index: 100;
+    position: fixed;
+    min-width: 54vw;
+    display: grid;
+    justify-content: center;
+    border: 4px solid gainsboro;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    padding-top: 3vh;
+}
+
+.addComment {
+    justify-self: center;
+}
+
+.modal img {
+    max-height: 45vh;
+    max-width: 37vw;
+    justify-self: center;
+    border-radius: 37px;
+}
+
+#nextImg {
+    top: 20vh;
+    font-size: 71px;
+    text-decoration: none;
+    color: gainsboro;
+    position: absolute;
+    right: 5vh
+}
+
+#prevImg {
+    top: 20vh;
+    font-size: 71px;
+    text-decoration: none;
+    color: gainsboro;
+    position: absolute;
+    left: 5vh;
+}
+
+#commentFields {
+    overflow: scroll;
+    height: 16vh;
+    padding-bottom: 2vh;
+}
+
+#commentuser {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.pictureInfo {
+    justify-self: center
+}
+
+.pictureInfo p {
+    display: flex;
+    justify-content: center
+}
+
+#morePics {
+    position: relative;
+    bottom: 4vh;
+    left: 31%;
+}
+
+#moreButton {
+    font-size: 17px;
+    width: 20vw;
+    height: 3vh;
+    position: relative;
+    bottom: 3vh;
+    left: 40%;
+    border-radius: 15px;
+}
+
+#moreButton:hover {
+    background-color: grey;
+    color: white;
+}

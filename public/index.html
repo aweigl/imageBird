@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <title>Imagebird</title>
+</head>
+
+<body>
+    <header>
+        <a href="//www.linkedin.com/in/aaron-weigl/" target="_blank">
+        <img id="logo" src="/logo.png" alt="LOGO">
+        <label for="logo">Imagebird</label>
+        </a>
+    </header>
+    <div id="main">
+        <a href="#" v-on:click="adminAcc">admin</a>
+        <a href="#" v-on:click="adminlogout" v-if="admin">logout</a>
+        <div id="upload">
+            <label for="title">Title</label>
+            <input id="title" type="text" name="title" v-model="uploadFile.title">
+            <label for="desc">Description</label>
+            <input id="desc" type="text" name="description" v-model="uploadFile.description">
+            <label for="username">Username</label>
+            <input id="text" type="text" name="username" v-model="uploadFile.username">
+            <input id="file" type="file" name="file" v-on:change="setFile">
+            <button v-on:click="upload">Submit</button>
+            <div class='newStuff'>
+                <p id="uploadHappened" v-if='uploadHappened'> New pictures have been uploaded, click here to check them out!</p>
+                <button class="uploadHappened" v-if='uploadHappened' v-on:click="reloadPage">New Stuff</button>
+            </div>
+        </div>
+        <p id="tooLarge" v-if="tooLarge"> An error occoured, please try again! </p>
+        <h2>Latest Images</h2>
+        <div class="picContainer">
+            <div class="pictures" v-for='item in picInfo'>
+                <a href="#" v-if="admin" v-on:click="delPic" v-bind:id="item.id">X</a>
+                <a v-bind:href='"#" + item.id'>
+                <img :id="item.id" :src="item.url">
+                </a>
+                <a v-bind:href='"#" + item.id'>{{item.title}}</a>
+            </div>
+        </div>
+        <button id="moreButton" v-on:click="getMore" v-if="morePics">More</button>
+        <a href="#" v-if="!morePics">BackToTheTop</a>
+        <p id="morePics" v-if="!morePics">No more pictures to show, sorry! Reload the page to see if any new pictures have been uploaded.</p>
+        <comment-modal v-if='currentImageId' v-on:closemodal="closeModalMain" :imageid="currentImageId" :nextimgid="nextImageId" :previmgid="prevImageId">
+        </comment-modal>
+    </div>
+
+    <script id="comment-modal" type="x-template ">
+        <div class="backgroundModal" v-on:click="close">
+            <div class="modal" v-on:click.stop="">
+                <a id="nextImg" v-bind:href="'#' + nextimgid">></a>
+                <a id="prevImg" v-bind:href="'#' + previmgid">
+                    <</a>
+                        <img :src="url">
+                        <div class="pictureInfo">
+                            <h2>{{title}}</h2>
+                            <p>{{description}}</p>
+                            <p>Uploaded by {{username}} on {{uploadedAt}}</p>
+                        </div>
+                        <div class="addComment">
+                            <label for="username ">Username</label>
+                            <input id="commentusername" type="text" name="username " v-model="comment.commentusername">
+                            <label for="comment">Comment</label>
+                            <input id="comment" type="text" name="comment" v-model="comment.comment">
+                            <button v-on:click="commentUpload">Submit</button>
+                        </div>
+                        <div id="commentFields">
+                            <div class="comments" v-for="item in comments">
+                                <p id="commentuser">{{item.commentusername}}:</p>
+                                <p>{{item.comment}} on {{item.commentcreated || item.created_at}}</p>
+                            </div>
+                        </div>
+            </div>
+        </div>
+        </div>
+    </script>
+
+    <script src="/js/vue.js "></script>
+    <script src="/js/axios.min.js "></script>
+    <script src="/js/script.js "></script>
+</body>
+
+</html>
