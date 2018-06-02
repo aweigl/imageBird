@@ -3,15 +3,15 @@
 
 <head>
     <link rel="stylesheet" href="/stylesheet.css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> -->
     <title>Imagebird</title>
 </head>
 
 <body>
     <header>
         <a href="//www.linkedin.com/in/aaron-weigl/" target="_blank">
-        <img id="logo" src="/logo.png" alt="LOGO">
-        <label for="logo">Imagebird</label>
+            <img id="logo" src="/logo.png" alt="LOGO">
+            <label for="logo">Imagebird</label>
         </a>
     </header>
     <div id="main">
@@ -37,7 +37,7 @@
             <div class="pictures" v-for='item in picInfo'>
                 <a href="#" v-if="admin" v-on:click="delPic" v-bind:id="item.id">X</a>
                 <a v-bind:href='"#" + item.id'>
-                <img :id="item.id" :src="item.url">
+                    <img :id="item.id" :src="item.url">
                 </a>
                 <a v-bind:href='"#" + item.id'>{{item.title}}</a>
             </div>
@@ -45,7 +45,8 @@
         <button id="moreButton" v-on:click="getMore" v-if="morePics">More</button>
         <a href="#" v-if="!morePics">BackToTheTop</a>
         <p id="morePics" v-if="!morePics">No more pictures to show, sorry! Reload the page to see if any new pictures have been uploaded.</p>
-        <comment-modal v-if='currentImageId' v-on:closemodal="closeModalMain" :imageid="currentImageId" :nextimgid="nextImageId" :previmgid="prevImageId">
+        <comment-modal v-if='currentImageId' v-on:closemodal="closeModalMain" :imageid="currentImageId" :nextimgid="nextImageId"
+            :previmgid="prevImageId">
         </comment-modal>
     </div>
 
